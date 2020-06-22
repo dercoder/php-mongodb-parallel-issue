@@ -1,0 +1,16 @@
+{
+  "name": "dercoder/php-mongodb-parallel-issue",
+  "type": "project",
+  "version": "1.0.0",
+  "autoload": {
+    "psr-4": {
+      "ParallelTest\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.2.0",
+    "ext-mongodb": "*",
+    "ext-parallel": "*",
+    "mongodb/mongodb": "^1.6"
+  }
+}
