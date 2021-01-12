@@ -9,8 +9,8 @@
   },
   "require": {
     "php": ">=7.2.0",
-    "ext-mongodb": "*",
+    "ext-mongodb": "^1.10",
     "ext-parallel": "*",
-    "mongodb/mongodb": "^1.6"
+    "mongodb/mongodb": "^1.8"
   }
 }

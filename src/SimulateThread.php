@@ -11,19 +11,20 @@ class SimulateThread
 {
     /**
      * @param string $message
+     * @param bool   $persistence
      *
      * @return Future
      */
-    public static function run(string $message): Future
+    public static function run(string $message, bool $persistence): Future
     {
         $bootstrap = realpath(__DIR__ . '/../vendor/autoload.php');
         $runtime = new Runtime($bootstrap);
         return $runtime->run(
-            function ($message) {
+            function ($message, $persistence) {
                 try {
                     $seconds = rand(11, 15);
                     echo "$message thread started\r\n";
-                    $client = new SimulateClient();
+                    $client = new SimulateClient($persistence);
                     sleep($seconds);
                     echo "$message thread completed\r\n";
                 } catch (Exception $exception) {
@@ -32,7 +33,7 @@ class SimulateThread
 
                 return strrev($message);
             },
-            [$message]
+            [$message, $persistence]
         );
     }
 
