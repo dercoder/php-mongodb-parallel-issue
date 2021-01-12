@@ -6,16 +6,16 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $pid = getmypid();
 
-echo "Process ID: {$pid} - PERSISTENCE\r\n";
+echo "Process ID: {$pid} - NON PERSISTENCE\r\n";
 
-$fruits = ['Apple', 'Banana', 'Cherry', 'Orange'];
+$fruits = ['Pineapple', 'Lemon', 'Strawberry', 'Pomegranate'];
 $futures = [];
 
 while (true) {
     $date = date('H:i:s');
     echo "--- {$date} ---\r\n";
     foreach ($fruits as $key => $fruit) {
-        $futures[] = SimulateThread::run($fruit, true);
+        $futures[] = SimulateThread::run($fruit, false);
         unset($fruits[$key]);
     }
 

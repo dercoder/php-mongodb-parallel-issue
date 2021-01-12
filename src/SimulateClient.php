@@ -13,11 +13,13 @@ class SimulateClient
 
     /**
      * SimulateClient constructor.
+     *
+     * @param bool $persistence
      */
-    public function __construct()
+    public function __construct(bool $persistence)
     {
         $uri = 'mongodb://127.0.0.1:27017/test';
-        $this->client = new Client($uri);
+        $this->client = new Client($uri, [], ['disableClientPersistence' => !$persistence]);
         $this->client->listDatabases();
     }
 }
